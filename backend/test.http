@@ -1,0 +1,12 @@
+POST http://localhost:6969/api HTTP/1.1
+content-type: application/json
+
+{
+   "name":"patrick"
+}
+# GET http://localhost:3000/
+# content-type: text/plain
+
+# {
+#    "name":"patrick"
+# }

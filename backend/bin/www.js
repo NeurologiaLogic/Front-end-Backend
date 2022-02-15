@@ -3,23 +3,25 @@
 /**
  * Module dependencies.
  */
-
+//import app
 var app = require("../app");
 var debug = require("debug")("backend:server");
 var https = require("http");
 var fs = require("fs");
+// require("dotenv").config();
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
+console.log(port);
 
 /**
  * Create HTTP server.
  */
 var privateKey = fs.readFileSync("C:/Users/oensi/localhost+3-key.pem");
-var certificate = fs.readFileSync("C:/Users/oensi//localhost+3.pem");
+var certificate = fs.readFileSync("C:/Users/oensi/localhost+3.pem");
 
 var server = https.createServer({ key: privateKey, cert: certificate }, app);
 
