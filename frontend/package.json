@@ -2,19 +2,29 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "description": "```\r npm install\r ```",
+  "author": "",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "main": ".eslintrc.js",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.0.0",
+    "@tailwindcss/postcss7-compat": "^2.2.17",
+    "autoprefixer": "^9",
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "postcss": "^7",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "^4.5.15",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-prettier": "^6.0.0",
@@ -22,10 +32,15 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.0.0",
-    "prettier": "^2.2.1"
+    "mutationobserver-shim": "^0.3.3",
+    "popper.js": "^1.16.0",
+    "portal-vue": "^2.1.6",
+    "prettier": "^2.2.1",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+    "vue-cli-plugin-bootstrap": "~0.4.0",
+    "vue-cli-plugin-tailwind": "~2.2.18"
   },
-  "description": "```\r npm install\r ```",
-  "main": ".eslintrc.js",
-  "author": "",
   "license": "ISC"
 }
