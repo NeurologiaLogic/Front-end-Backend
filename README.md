@@ -1,10 +1,18 @@
-# EveriitRevamp
+### EveriitRevamp
 ## First Install
- - fork from github
- - git clone your repository
- - sh run.sh in terminal  
- - code 
+ 1. fork from github
+ 2. git clone your repository
+ 3. sh run.sh in terminal  
+ 4. code 
 ## requirement:
- - install node from https://nodejs.org/en/download/
+ - install Node
  - install vue npm install -g @vue/cli in terminal
- - install git from https://git-scm.com/downloads
+ - install git 
+### Link
+[Node Install](https://nodejs.org/en/download/)
+[Git Install](https://git-scm.com/downloads)
+
+### Task List
+
+- [ ] Design Front Page
+- [ ] Login Register System
