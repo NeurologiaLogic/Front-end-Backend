@@ -3,25 +3,34 @@
 /**
  * Module dependencies.
  */
-
+//import app
 var app = require("../app");
 var debug = require("debug")("backend:server");
-var https = require("http");
+var http = require("https");
 var fs = require("fs");
+// require("dotenv").config();
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || "3000");
-app.set("port", port);
+// app.set("port", 3000);
 
 /**
  * Create HTTP server.
  */
-var privateKey = fs.readFileSync("C:/Users/oensi/localhost+3-key.pem");
-var certificate = fs.readFileSync("C:/Users/oensi//localhost+3.pem");
+let privateKey = fs.readFileSync(
+  "C:/Users/oensi/Desktop/everit/EveriitRevamp/backend/bin/key.pem"
+);
+let certificate = fs.readFileSync(
+  "C:/Users/oensi/Desktop/everit/EveriitRevamp/backend/bin/cert.pem"
+);
+// let privateKey = fs.readFileSync("C://Users//oensi//localhost+1-key.pem");
+// let certificate = fs.readFileSync("C://Users//oensi//localhost+1.pem");
+// key: fs.readFileSync("C://Users//oensi//localhost+1-key.pem"),
+// cert: fs.readFileSync("C://Users//oensi//localhost+1.pem"),
 
-var server = https.createServer({ key: privateKey, cert: certificate }, app);
+var server = http.createServer({ key: privateKey, cert: certificate }, app);
 
 /**
  * Listen on provided port, on all network interfaces.

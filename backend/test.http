@@ -1,0 +1,13 @@
+# GET http://pokeapi.co/api/v2/
+# content-type: text/plain
+
+# {
+#    "name":"patrick"
+# }
+
+# GET https://localhost:3000/users
+# content-type: text/plain
+
+# {
+#    "name":"patrick"
+# }
