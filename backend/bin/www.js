@@ -37,6 +37,7 @@ var server = http.createServer({ key: privateKey, cert: certificate }, app);
  */
 
 server.listen(port);
+console.log(port);
 server.on("error", onError);
 server.on("listening", onListening);
 
