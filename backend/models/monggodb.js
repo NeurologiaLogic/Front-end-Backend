@@ -19,23 +19,3 @@ function connectIt() {
   // .catch((err) => console.log(err));
 }
 module.exports = { connectIt };
-
-// function assignSession(client) {
-//   app.use(
-//     session({
-//       secret: "hwehwehwe",
-//       resave: false,
-//       saveUninitialized: false,
-//       cookie: {},
-//       store: new MongoStore({
-//         client: client,
-//         collectionName: "sessions",
-//         ttl: 24 * 60 * 60,
-//         mongoOptions: {
-//           useNewUrlParser: true,
-//           useUnifiedTopology: true,
-//         },
-//       }),
-//     })
-//   );
-// }

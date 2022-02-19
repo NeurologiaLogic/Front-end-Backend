@@ -10,7 +10,7 @@ const router = express.Router();
 
 //base link
 router.get("/", (req, res, next) => {
-  res.status(200).end();
+  res.status(200).send("api call");
   // next();
 });
 
