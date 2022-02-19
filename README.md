@@ -4,7 +4,7 @@
 
 1.  fork from github
 2.  git clone your repository
-3.  sh run.sh in terminal
+3.  sh install.sh in terminal
 4.  code
 
 ## requirement:
