@@ -1,37 +1,40 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
+// const session = require("../models/sessions");
+// const mongoose = require("mongoose");
+// const csrf = require("csrf");
+// const csrfProtection = csrf({cookie:{httpOnly: true}})
 
-/* GET home page. */
-// const parse = (req) => {};
-// router.get("/", function (req, res, next) {
-//   res.render("index", { title: "Express" });
-// });
-router.post("/", (req, res, next) => {
-  // if (req.body.name === "patrick") {
-  // res.writeHead(200, {
-  //   "Set-Cookie": `punya=${req.body.name}`,
-  //   "Content-Type": `text/plain`,
-  // });
-  // req.session.credentials = "patrick";
+//generate model class
+// const sessions = mongoose.model("session", session);
 
-  // res.cookie("name", "hihi", { maxAge: 3600, httpOnly: true, secure: true });
-  const user = "hi";
-  const password = "ho";
-  // req.session.name = user;
-  // console.log(req.session.name);
-  // req.session.name = "mother";
-  // req.session = null;
-  req.session.name = "eyy";
-  console.log(req.session);
-  res.status(200).end();
-  next();
-});
+//base link
 router.get("/", (req, res, next) => {
-  const token = req.session.credential;
-  req.session.maxAge = 3600;
-  if (token === "patrick") res.status(200).send(token);
-  else res.status(404).send("credentials not valid");
-  next();
+  res.status(200).send("api call");
+  // next();
 });
 
+//GETUSER
+router.post("/getuser", (req, res) => {
+  //validate session
+  // if (!req.body.name) return res.send("user");
+  req.session.users = "patrick";
+  res.send(req.session.users);
+});
+
+//LOGIN
+router.post("/login", (req, res, next) => {
+  req.session.email = req.body.Email;
+  req.session.password = req.body.Password;
+  res.status(200).send(req.session.email);
+  //login confirm
+  //if fail return to login
+});
+
+//LOGOUT
+router.post("/logout", (req, res) => {
+  req.session.email = req.body.Email;
+  req.session.password = req.body.Password;
+  res.status(200).send(req.session.email);
+});
 module.exports = router;

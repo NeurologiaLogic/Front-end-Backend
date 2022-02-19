@@ -19,24 +19,28 @@ var port = normalizePort(process.env.PORT || "3000");
 /**
  * Create HTTP server.
  */
-let privateKey = fs.readFileSync(
-  "C:/Users/oensi/Desktop/everit/EveriitRevamp/backend/bin/key.pem"
-);
-let certificate = fs.readFileSync(
-  "C:/Users/oensi/Desktop/everit/EveriitRevamp/backend/bin/cert.pem"
-);
+// let privateKey = fs.readFileSync(
+//   "C:/Users/oensi/Desktop/everit/EveriitRevamp/backend/bin/key.pem"
+// );
+// let certificate = fs.readFileSync(
+//   "C:/Users/oensi/Desktop/everit/EveriitRevamp/backend/bin/cert.pem"
+// );
 // let privateKey = fs.readFileSync("C://Users//oensi//localhost+1-key.pem");
 // let certificate = fs.readFileSync("C://Users//oensi//localhost+1.pem");
 // key: fs.readFileSync("C://Users//oensi//localhost+1-key.pem"),
 // cert: fs.readFileSync("C://Users//oensi//localhost+1.pem"),
 
-var server = http.createServer({ key: privateKey, cert: certificate }, app);
+var server = http.createServer(
+  // { key: privateKey, cert: certificate },
+  app
+);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
+console.log(port);
 server.on("error", onError);
 server.on("listening", onListening);
 

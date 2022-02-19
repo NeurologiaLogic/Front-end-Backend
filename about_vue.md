@@ -1,3 +1,2 @@
-the server cookies works, but only for the localhost
-
-https://docs.emmet.io/cheat-sheet/
+connect monggo documentation
+https://www.npmjs.com/package/connect-mongo

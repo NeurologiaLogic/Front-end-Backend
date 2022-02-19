@@ -1,5 +1,6 @@
 <template>
   <div class="w-full items-center">
+    <!-- the navbar -->
     <nav class="container flex flex-row py-10 justify-center items-center">
       <!-- start -->
       <div class="first-ses justify-center mr-60">
@@ -27,6 +28,7 @@
         </div>
       </div>
     </nav>
+      <!-- end of navbar -->
   </div>
 </template>
 <script>
