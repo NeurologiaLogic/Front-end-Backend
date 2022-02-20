@@ -1,4 +1,4 @@
-### EveriitRevamp
+### Frontend and backend template
 
 ## First Install
 
