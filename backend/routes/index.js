@@ -1,5 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const jwt = require("jsonwebtoken");
+const argon2 = require("argon2");
+const { generateKeyPair } = require("crypto");
+require("dotenv").config();
+const { register, setupSession, login, logout } = require("../validate/link");
 // const session = require("../models/sessions");
 // const mongoose = require("mongoose");
 // const csrf = require("csrf");
@@ -9,32 +14,44 @@ const router = express.Router();
 // const sessions = mongoose.model("session", session);
 
 //base link
-router.get("/", (req, res, next) => {
-  res.status(200).send("api call");
-  // next();
-});
+// router.get("/", (req, res, next) => {
+//   res.status(200).send("api call");
+// next();
+// });
 
-//GETUSER
-router.post("/getuser", (req, res) => {
-  //validate session
-  // if (!req.body.name) return res.send("user");
-  req.session.users = "patrick";
-  res.send(req.session.users);
-});
+//KEY test for
+//added argon2 and jwt
+// router.get("/key", (req, res) => {
+//   generateKeyPair(
+//     "rsa",
+//     {
+//       modulusLength: 2048,
+//       publicKeyEncoding: {
+//         type: "spki",
+//         format: "pem",
+//       },
+//       privateKeyEncoding: {
+//         type: "pkcs8",
+//         format: "pem",
+//         cipher: "aes-256-cbc",
+//         passphrase: "top secret",
+//       },
+//     },
+//     (err, publicKey, privateKey) => {
+//       // Handle errors and use the
+//       // generated key pair.
+//       res.send(publicKey);
+//     }
+//   );
+// });
 
 //LOGIN
-router.post("/login", (req, res, next) => {
-  req.session.email = req.body.Email;
-  req.session.password = req.body.Password;
-  res.status(200).send(req.session.email);
-  //login confirm
-  //if fail return to login
-});
+router.post("/login", login);
+
+//REGISTER
+router.post("/register", register);
 
 //LOGOUT
-router.post("/logout", (req, res) => {
-  req.session.email = req.body.Email;
-  req.session.password = req.body.Password;
-  res.status(200).send(req.session.email);
-});
+router.post("/logout", logout);
+
 module.exports = router;

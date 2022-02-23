@@ -12,13 +12,13 @@ const cors = require("cors");
 
 //routes
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+// const usersRouter = require("./routes/users");
 
 //database and client
 const session = require("express-session");
-const mongoDb = require("mongodb").MongoClient;
+// const client = require("mongodb").MongoClient;
 const MongoStore = require("connect-mongo");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const Db = require("./models/monggodb");
 
 //connect to database
@@ -42,7 +42,7 @@ app.set("trust proxy", 1);
 
 app.use(
   session({
-    secret: "supersecret difficult to guess string",
+    secret: "c3VwZXJzZWNyZXQgZGlmZmljdWx0IHRvIGd1ZXNzIHN0cmluZw",
     cookie: {},
     // maxAge: 60 * 60 * 1000,
     resave: false,
@@ -51,7 +51,7 @@ app.use(
       // client: client,
       mongoUrl: process.env.Db,
       collectionName: "sessions",
-      ttl: 24 * 60 * 60,
+      // ttl: 24 * 60 * 60,
     }),
   })
 );
@@ -70,6 +70,6 @@ app.use(
 );
 
 app.use("/api", indexRouter);
-app.use("/users", usersRouter);
+// app.use("/users", usersRouter);
 
 module.exports = app;
