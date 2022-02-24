@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 // const { generateKeyPair } = require("crypto");
 require("dotenv").config();
-const { register, login, logout, articles, createArticle } = require("../validate/link");
+const { register, login, logout, articles, createArticle,articlesSearch } = require("../validate/link");
 // const session = require("../models/sessions");
 // const mongoose = require("mongoose");
 // const csrf = require("csrf");
@@ -56,7 +56,11 @@ router.post("/logout", logout);
 //NEW_ARTICLE
 router.post("/create", createArticle);
 
-//ARTICLE
-// router.get("/posts/:title", articles);
+//ARTICLE OPEN
+router.get("/posts/:slug", articlesSearch);
+
+//ARTICLE HOME
+router.get("/posts", articles);
+
 
 module.exports = router;
