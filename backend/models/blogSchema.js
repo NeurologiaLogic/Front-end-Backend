@@ -11,4 +11,5 @@ const blogSchema = new schema({
     votes: Number,
     favs: Number,
   },
+  
 });

@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const argon2 = require("argon2");
 const { generateKeyPair } = require("crypto");
 require("dotenv").config();
-const { register, setupSession, login, logout } = require("../validate/link");
+const { register, login, logout } = require("../validate/link");
 // const session = require("../models/sessions");
 // const mongoose = require("mongoose");
 // const csrf = require("csrf");

@@ -1,4 +1,3 @@
-const schema = require("mongoose").Schema;
 const mongoose = require("mongoose");
 
 //normal user
@@ -9,14 +8,19 @@ const mongoose = require("mongoose");
 // })
 
 //blog user
-const user = new schema({
+const user = new mongoose.Schema({
   email: {
     type: String,
+    required: true,
   },
   password: {
     type: String,
+    required: true,
   },
-  name: String,
+  name: {
+    type: String,
+    required: true,
+  },
   blogs: [String],
   followers: {
     type: Number,

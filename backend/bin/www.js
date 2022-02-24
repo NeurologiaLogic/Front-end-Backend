@@ -27,8 +27,8 @@ var port = normalizePort(process.env.PORT || "3000");
 // );
 let privateKey = fs.readFileSync("C://Users//oensi//localhost+1-key.pem");
 let certificate = fs.readFileSync("C://Users//oensi//localhost+1.pem");
-// key: fs.readFileSync("C://Users//oensi//localhost+1-key.pem"),
-// cert: fs.readFileSync("C://Users//oensi//localhost+1.pem"),
+// let privateKey = fs.readFileSync("key.pem");
+// let certificate = fs.readFileSync("cert.pem");
 
 var server = http.createServer({ key: privateKey, cert: certificate }, app);
 
@@ -37,6 +37,7 @@ var server = http.createServer({ key: privateKey, cert: certificate }, app);
  */
 
 server.listen(port);
+
 console.log(port);
 server.on("error", onError);
 server.on("listening", onListening);

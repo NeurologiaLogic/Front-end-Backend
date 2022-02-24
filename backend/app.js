@@ -12,13 +12,12 @@ const cors = require("cors");
 
 //routes
 const indexRouter = require("./routes/index");
-// const usersRouter = require("./routes/users");
 
 //database and client
 const session = require("express-session");
-// const client = require("mongodb").MongoClient;
+const mongoDb = require("mongodb").MongoClient;
 const MongoStore = require("connect-mongo");
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const Db = require("./models/monggodb");
 
 //connect to database
@@ -42,16 +41,16 @@ app.set("trust proxy", 1);
 
 app.use(
   session({
-    secret: "c3VwZXJzZWNyZXQgZGlmZmljdWx0IHRvIGd1ZXNzIHN0cmluZw",
+    secret: "haihai",
     cookie: {},
     // maxAge: 60 * 60 * 1000,
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({
-      // client: client,
+      // client: clientDb,
       mongoUrl: process.env.Db,
       collectionName: "sessions",
-      // ttl: 24 * 60 * 60,
+      ttl: 24 * 60 * 60,
     }),
   })
 );

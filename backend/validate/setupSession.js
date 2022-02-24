@@ -1,4 +1,4 @@
-exports.login = (req, res) => {
+exports.setupSession = (req, res) => {
   //validate session
   nameing = "patrick";
   console.log(nameing);
