@@ -9,7 +9,6 @@ exports.register = async (req, res) => {
     const hashed_password = await argon2.hash(req.body.password, {
       type: argon2.argon2id,
     });
-    // console.log(hashed_password);
     const user = new User({
       email: req.body.email,
       password: hashed_password,
@@ -23,6 +22,6 @@ exports.register = async (req, res) => {
       .catch((err) => {
         console.log(err);
       });
-    await res.send("user created");
+    res.send("user created");
   });
 };

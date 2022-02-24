@@ -21,7 +21,7 @@ const user = new mongoose.Schema({
     type: String,
     required: true,
   },
-  blogs: [String],
+  blogs: [mongoose.ObjectId],
   followers: {
     type: Number,
     default: 0,

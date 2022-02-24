@@ -9,7 +9,7 @@ exports.login = async (req, res) => {
     const verify = await argon2.verify(doc.password, req.body.password);
     if (!verify) return await res.send("wrong email or credentials");
     req.session.name = await doc.name;
-    req.session.monggoID = await reslt.id;
+    req.session.monggoID = await doc._id;
     await res.send(doc);
     // const GetUser = User.findOne({ email: req.body.email , password:user});
 
