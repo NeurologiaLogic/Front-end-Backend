@@ -21,6 +21,7 @@
     "firebase": "^9.6.7",
     "firebase-functions": "^3.18.1",
     "https": "^1.0.0",
+    "jsdom": "^19.0.0",
     "jsonwebtoken": "^8.5.1",
     "marked": "^4.0.12",
     "mongodb": "^4.4.0",

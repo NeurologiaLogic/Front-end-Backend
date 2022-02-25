@@ -1,6 +1,15 @@
 const mongoose = require("mongoose");
 const Article = require("../models/articleSchema");
 const slugify = require("slugify");
+const marked = require("marked").marked;
+
+//purify setup from documentation
+const createDOMPurify = require('dompurify');
+const { JSDOM } = require('jsdom');
+const window = new JSDOM('').window;
+const DOMPurify = createDOMPurify(window);
+//
+
 exports.createArticle = async (req, res) => {
   if (!req.session.name) return res.send("not authenticated");
   //duplikasi form yang sama
@@ -27,11 +36,13 @@ exports.createArticle = async (req, res) => {
         title: title,
         slug: slugTitle,
         author: mongoose.Types.ObjectId(ses),
-        content: content,
         hidden: hidden,
       });
       //  await articles.array.$push()
       await article.tags.push(...tags);
+
+      //converting marked down to html
+      article.content = await DOMPurify.sanitize(marked(content));
 
       //something is wrong here
       await article
