@@ -2,10 +2,10 @@
 
 ## First Install
 
-1.  fork from github
-2.  git clone your repository
+1.  fork from github or git clone the repository
 3.  sh install.sh in terminal
-4.  code
+4.  cd backend/ then npm run start. To start the server 
+5.  cd frontend/ to code the frontend
 
 ## requirement:
 
