@@ -1,48 +1,49 @@
-// const { app } = require("firebase-admin");
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+//import app
 const functions = require("firebase-functions");
-const express = require("express");
-const app = express();
-// Create and Deploy Your First Cloud Functions
-// https://firebase.google.com/docs/functions/write-firebase-functions
+var app = require("./app");
+var debug = require("debug")("backend:server");
+var http = require("https");
+var fs = require("fs");
+// require("dotenv").config();
+/**
+ * Get port from environment and store in Express.
+ */
 
-app.listen(6000, (req, res) => {});
+var port = normalizePort(process.env.PORT || "3000");
+// app.set("port", 3000);
 
-// app.get("/key", (req, res) => {
-//   generateKeyPair(
-//     "rsa",
-//     {
-//       modulusLength: 2048,
-//       publicKeyEncoding: {
-//         type: "spki",
-//         format: "pem",
-//       },
-//       privateKeyEncoding: {
-//         type: "pkcs8",
-//         format: "pem",
-//         cipher: "aes-256-cbc",
-//         passphrase: "top secret",
-//       },
-//     },
-//     (err, publicKey, privateKey) => {
-//       // Handle errors and use the
-//       // generated key pair.
-//       res.send(publicKey);
-//     }
-//   );
-// });
+/**
+ * Create HTTP server.
+ */
+// let privateKey = fs.readFileSync(
+//   "C:/Users/oensi/Desktop/everit/EveriitRevamp/backend/bin/key.pem"
+// );
+// let certificate = fs.readFileSync(
+//   "C:/Users/oensi/Desktop/everit/EveriitRevamp/backend/bin/cert.pem"
+// );
+// let privateKey = fs.readFileSync("C://Users//oensi//localhost+1-key.pem");
+// let certificate = fs.readFileSync("C://Users//oensi//localhost+1.pem");
+// let privateKey = fs.readFileSync("key.pem");
+// let certificate = fs.readFileSync("cert.pem");
+// { key: privateKey, cert: certificate },
+var server = http.createServer(app);
 
-// exports.app = functions.https.onRequest((req, res) => {
-// const hours = new Date().getHours() % 12;
-// res.status(200).send(key);
+/**
+ * Listen on provided port, on all network interfaces.
+ */
 
-// });
-exports.app = functions.https.onRequest(app);
+server.listen(port);
+exports.app = functions.https.onRequest(server);
 
-//for Nodejs
-// exports.app = functions.https.onRequest(app)
+console.log(port);
 
-//forsomething
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+

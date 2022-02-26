@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const User = require("../models/userSchema");
 const argon2 = require("argon2");
+
+//
 exports.register = async (req, res) => {
   try{
     const {email, password,name} = req.body;
