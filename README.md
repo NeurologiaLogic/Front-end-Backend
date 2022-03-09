@@ -12,6 +12,7 @@
 - install Node
 - install vue npm install -g @vue/cli in terminal
 - install git
+- Add .env file in the backend file with name Db="your database Key"
 
 ### Link
 
