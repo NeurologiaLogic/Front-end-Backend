@@ -22,7 +22,7 @@
 ### Task List
 
 - [ ] Design Front Page
-- [ ] Login Register System
+- [x] Login Register System
 
 ### Html emets:
 
