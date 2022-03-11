@@ -12,6 +12,7 @@
 - install Node
 - install vue npm install -g @vue/cli in terminal
 - install git
+- Add .env file in the backend file with name Db="your database Key"
 
 ### Link
 
@@ -21,7 +22,7 @@
 ### Task List
 
 - [ ] Design Front Page
-- [ ] Login Register System
+- [x] Login Register System
 
 ### Html emets:
 
