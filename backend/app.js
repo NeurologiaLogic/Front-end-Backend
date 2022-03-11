@@ -12,6 +12,7 @@ const cors = require("cors");
 
 //routes
 const indexRouter = require("./routes/index");
+const homeRouter = require("./routes/home");
 
 //database and client
 const session = require("express-session");
@@ -28,6 +29,10 @@ Db.connectIt();
 //setting up cookies
 const app = express();
 app.set("trust proxy", 1);
+
+//optional if want to use ejs
+app.set('view engine', 'ejs');
+
 // app.use(
 //   cookieSession({
 //     name: "session",
@@ -67,7 +72,7 @@ app.use(
     credentials: true,
   })
 );
-
+// app.use("/",homeRouter)
 app.use("/api", indexRouter);
 // app.use("/users", usersRouter);
 

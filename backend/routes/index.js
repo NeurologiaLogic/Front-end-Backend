@@ -1,47 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const qrCode = require('qrCode');
 // const { generateKeyPair } = require("crypto");
 require("dotenv").config();
-const { register, login, logout, articles, createArticle,articlesSearch } = require("../validate/link");
+const {
+  register,
+  login,
+  logout, 
+  articles,
+  createArticle,
+  articlesSearch,
+} = require("../validate/link");
+// const { getQr, data } = require("../validate/generateQr");
 // const session = require("../models/sessions");
 // const mongoose = require("mongoose");
 // const csrf = require("csrf");
 // const csrfProtection = csrf({cookie:{httpOnly: true}})
 
-//generate model class
-// const sessions = mongoose.model("session", session);
-
 //base link
 // router.get("/", (req, res, next) => {
 //   res.status(200).send("api call");
 // next();
-// });
-
-//KEY test for
-//added argon2 and jwt
-// router.get("/key", (req, res) => {
-//   generateKeyPair(
-//     "rsa",
-//     {
-//       modulusLength: 2048,
-//       publicKeyEncoding: {
-//         type: "spki",
-//         format: "pem",
-//       },
-//       privateKeyEncoding: {
-//         type: "pkcs8",
-//         format: "pem",
-//         cipher: "aes-256-cbc",
-//         passphrase: "top secret",
-//       },
-//     },
-//     (err, publicKey, privateKey) => {
-//       // Handle errors and use the
-//       // generated key pair.
-//       res.send(publicKey);
-//     }
-//   );
 // });
 
 //LOGIN
@@ -62,5 +42,21 @@ router.get("/posts/:slug", articlesSearch);
 //ARTICLE HOME
 router.get("/posts", articles);
 
+//ejs test
+router.get("/", async (req, res) => {
+  //   res.locals.name = req.session.name;
+  res.locals.name = await "patrick";
+  // await getQr("patrick");
+  // await console.log(data);
+  // await res.render("LandingPage", { data: data })
+  await qrCode.toDataURL(res.locals.name)
+  .then(reslt=>{
+    res.render("LandingPage", { data: reslt });
+  })
+  .catch(err=>{err})
+});
+
+//generate Qr
+// router.get("/qr",writePage)
 
 module.exports = router;
